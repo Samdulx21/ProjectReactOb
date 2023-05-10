@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 // * Import Container
-// import TaskListComponent from './components/container/Task.list';
-import GreetingStyled from './components/pure/GreetingStyled';
+import TaskListComponent from './components/container/Task.list';
+// import GreetingStyled from './components/pure/GreetingStyled';
+// import Father from './components/container/Father';
 
 // * Import Ejemplos
 // import Ejemplo1 from './hooks/Ejemplo1';
@@ -17,9 +18,8 @@ function App() {
   return (
     
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {/* <TaskListComponent /> */}
+      {/* <header className="App-header"> */}
+        {/* <img src={logo} className="App-logo" alt="logo" /> */}
         {/* Ejemplos de uso de HOOKS */}
         {/* <Ejemplo1 /> */}
         {/* <Ejemplo2 /> */}
@@ -30,8 +30,11 @@ function App() {
             Contenido del props.children 
           </h3>
         </Ejemplo4> */}
-        <GreetingStyled name='samuel' />
-      </header>
+        {/* <GreetingStyled name='samuel' /> */}
+      {/* </header> */}
+      {/* Gestion de enventos */}
+      {/* <Father /> */}
+      <TaskListComponent />
     </div>
   );
 }
