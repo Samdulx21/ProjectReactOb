@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { LEVELS } from '../../../models/Levels.enum'
 import { Task } from '../../../models/Task.class'
 
-const TaskForm = ({ add }) => {
+const TaskForm = ({ add, length }) => {
 
     const nameRef = useRef('')
     const descriptionRef = useRef('')
@@ -20,6 +20,25 @@ const TaskForm = ({ add }) => {
         add(newTask);
     }
 
+    //* Styles
+    const normalStyle = {
+        backgroundColor: 'blue',
+        color: 'white',
+        fontWeight: 'bold',
+    }
+
+    const urgentStyle = {
+        backgroundColor: 'yellow',
+        color: 'black',
+        fontWeight: 'bold',
+    }
+
+    const blockingStyle = {
+        backgroundColor: 'red',
+        color: 'white',
+        fontWeight: 'bold',
+    }
+
     return (
         <form onSubmit={addTask} className='d-flex justify-content-center align-items-center mb-4'>
             <div className='form-outline flex-fill'>
@@ -27,29 +46,28 @@ const TaskForm = ({ add }) => {
 
                 <input ref={descriptionRef} id='inputDescription' type='text' className='form-control form-control-lg' required placeholder='Task description' />
 
-                <label htmlFor='selectLevel' className='sr-only'>
-                    Priority
-                </label>
-
-                <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel'>
-                    <option value={LEVELS.NORMAL}>
+                <select ref={levelRef} defaultValue={LEVELS.NORMAL} id='selectLevel' className='form-control form-control-lg'>
+                    <option style={normalStyle} value={LEVELS.NORMAL}>
                         Normal
                     </option>
-                    <option value={LEVELS.URGENT}>
+                    <option style={urgentStyle} value={LEVELS.URGENT}>
                         Urgent
                     </option>
-                    <option value={LEVELS.BLOCKING}>
+                    <option style={blockingStyle} value={LEVELS.BLOCKING}>
                         Blocking
                     </option>
                 </select>
+                <button type='submit' className='btn btn-success btn-lg mg-2'>
+                { length > 0 ? 'Add New Task' : 'Create Your First Task' }
+                </button>
             </div>
-            <button type='submit' className='btn btn-success btn-lg mg-2'>Add</button>
         </form>
     )
 }
 
 TaskForm.protoTyps = {
     add: PropTypes.func.isRequired,
+    length: PropTypes.number.isRequired,
 }
 
 export default TaskForm

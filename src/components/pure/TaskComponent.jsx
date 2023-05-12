@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+
+//* Modelos
 import { Task } from '../../models/Task.class'
 import { LEVELS } from '../../models/Levels.enum'
 
@@ -64,10 +66,21 @@ const TaskComponent = ({ task, complete, remove }) => {
             return (  <i onClick={() => complete(task)} className='bi-toggle-off task-action' style={{ color: 'grey' }}></i> )
         }
     }
+
+    //* Style 
+    const taskCompleted = {
+        color: 'grey',
+        textDecoration: 'line-through',
+    }
+    
+    const taskPending = {
+        fontWeight: 'bold',
+        color: 'coral',
+    }
     
     return (
 
-        <tr className='fw-normal'>
+        <tr className='fw-normal' style={ task.completed ? taskCompleted : taskPending }>
             <th>
                 <span className='ms-2'>
                     { task.name }

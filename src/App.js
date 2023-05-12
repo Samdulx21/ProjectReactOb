@@ -2,12 +2,12 @@
 import './App.css';
 
 // * Import Container
-// import TaskListComponent from './components/container/Task.list';
+import TaskListComponent from './components/container/Task.list';
 // import GreetingStyled from './components/pure/GreetingStyled';
 // import Father from './components/container/Father';
 
 // * Import Ejemplos
-import OptionalRender from './components/pure/OptionalRender';
+// import OptionalRender from './components/pure/OptionalRender';
 // import Ejemplo1 from './hooks/Ejemplo1';
 // import Ejemplo2 from './hooks/Ejemplo2';
 // import MiComponenteConContexto from './hooks/Ejemplo3';
@@ -36,11 +36,11 @@ function App() {
       {/* </header> */}
 
       {/* Ejemplo de renderizado condicional */}
-      <OptionalRender />
+      {/* <OptionalRender /> */}
 
       {/* Gestion de enventos */}
       {/* <Father /> */}
-      {/* <TaskListComponent /> */}
+      <TaskListComponent />
     </div>
   );
 }
